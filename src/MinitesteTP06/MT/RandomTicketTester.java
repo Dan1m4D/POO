@@ -21,9 +21,12 @@ public class RandomTicketTester {
         // os bilhetes disponíveis estão listatos no ficheiro 'Lista_bilhetes.txt'
         for (int i=0; i<2*r.size(); i++) {
             int ri = (int) (Math.random()*r.size());
-            System.out.println(tickets.getRandomTicket(r.get(ri)));
+            //System.out.println(tickets.getRandomTicket(r.get(ri)));
+            tickets.getRandomTicket(r.get(ri));
+            System.out.println(tickets.winners);
         }
 
+        System.out.println(tickets.contest);
         tickets.listPessoas();
         tickets.listAvailableTickets();
     }

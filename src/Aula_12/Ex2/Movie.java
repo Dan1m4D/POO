@@ -1,4 +1,6 @@
 package Aula_12.Ex2;
+import java.util.*;
+import java.io.*;
 
 public class Movie implements Comparable{
     private String name;
@@ -36,13 +38,33 @@ public class Movie implements Comparable{
         return runtime;
     }
 
-    public int compareScore(Movie o){
-        return Double.compare(this.score, o.getScore());
+    public static int compareScore(ArrayList<Movie> al){
+        int comp = 0;
+        for (int i = 0; i< al.size(); i++)
+            comp = Double.compare(al.get(i).getScore(), al.get(i+1).getScore());
+        return comp;
     }
-    
-    public int compareRuntime(Movie o){
-        return Integer.compare(this.runtime, o.getRuntime());
+
+    public static int compareRuntime(ArrayList<Movie> al){
+        int comp = 0;
+        for (int i = 0; i< al.size(); i++)
+            comp = Integer.compare(al.get(i).getRuntime(), al.get(i+1).getRuntime());
+        return comp;
     }
+
+    //ReadFIle Method
+    public static Collection<Movie> getMoviesList (String path) throws FileNotFoundException{
+        TreeSet<Movie> movies = new TreeSet<>();
+        Scanner sc = new Scanner(new FileReader(path));
+        sc.nextLine();
+        while(sc.hasNextLine()){
+            String[] strAr = sc.nextLine().split("\t");
+            Movie m = new Movie(strAr[0], Double.parseDouble(strAr[1]), strAr[2], strAr[3], Integer.parseInt(strAr[4]));
+            movies.add(m);
+        }
+        return movies;
+    }
+
 
 
     //Overrides
@@ -67,7 +89,7 @@ public class Movie implements Comparable{
 
     @Override
 	public String toString() {
-	    return String.format ("%-15s %-4.2f %-20s %-20s %-5s ", this.name, this.score, this.rating, this.genre, this.runtime);
+	    return String.format ("%-40s %-10.1f %-20s %-20s %-5s ", this.name, this.score, this.rating, this.genre, this.runtime);
 		
 	}
 	
