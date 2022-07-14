@@ -1,4 +1,4 @@
-package Treino;
+package Treino.E2017;
 
 public class RoboCopa {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Treino;
+package Treino.E2017;
 
 public class Bola extends ObjetoMovel {
     private int X;

@@ -1,4 +1,4 @@
-package Treino;
+package Treino.E2017;
 
 public class ObjetoMovel {
     protected int X = 0;

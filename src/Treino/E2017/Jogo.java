@@ -1,4 +1,4 @@
-package Treino;
+package Treino.E2017;
 
 public class Jogo {
     private Equipa e1;

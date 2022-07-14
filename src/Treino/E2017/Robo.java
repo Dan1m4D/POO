@@ -1,4 +1,4 @@
-package Treino;
+package Treino.E2017;
 
 public class Robo extends ObjetoMovel implements Comparable<Robo>{
     private int X;
